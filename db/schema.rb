@@ -79,4 +79,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_034325) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "prototypes"
   add_foreign_key "comments", "users"
+  add_foreign_key "prototypes", "users"
 end
