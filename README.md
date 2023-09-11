@@ -39,6 +39,8 @@ Things you may want to cover:
 | prototype  | references | null: false, foreign_key: true |
 | user   | references | null: false, foreign_key: true |
 
+### Association
+
 ## users
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -51,5 +53,5 @@ Things you may want to cover:
 
 
 ### Association
-- belongs_to :users
-- belongs_to :prototypes
+- has_many :prototypes
+- has_many :comments,dependent: :destroy
