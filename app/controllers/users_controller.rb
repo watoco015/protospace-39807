@@ -14,4 +14,3 @@ def show
   # For example, to find the first prototype associated with this user:
   @prototype = @user.prototypes.first
 end
-end
