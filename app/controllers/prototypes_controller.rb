@@ -23,7 +23,7 @@ class PrototypesController < ApplicationController
   def show
     @prototype = Prototype.find(params[:id])
     @comment = Comment.new
-    @comments = @prototype.comments
+    @comments = @prototype.comments.includes(:user)
   end
 
   def edit
@@ -48,6 +48,7 @@ class PrototypesController < ApplicationController
     prototype.destroy
     redirect_to root_path
   end
+  
 
   private
   def prototype_params

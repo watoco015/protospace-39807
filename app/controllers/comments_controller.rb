@@ -1,14 +1,17 @@
 class CommentsController < ApplicationController
 
   def create
-      comment = Comment.create(comment_params)
+      @prototype = Prototype.find(params[:prototype_id])
+      @comment = Comment.new
+      @comments = @prototype.comments.includes(:user)
       
-      if comment.valid?
-        redirect_to "/prototypes/#{comment.prototype.id}" # Corrected path and variable
+      if @comment.save
+        redirect_to "/prototypes/#{@comment.prototype.id}" # Corrected path and variable
       else
-        render partial: "prototypes/prototype", status: :unprocessable_entity
+        render "prototypes/show"
       end
   end
+
 
 private
   def comment_params
